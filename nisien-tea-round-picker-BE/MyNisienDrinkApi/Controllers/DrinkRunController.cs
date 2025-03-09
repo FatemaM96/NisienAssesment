@@ -34,7 +34,7 @@ public async Task<ActionResult<DrinkRun>> StartDrinkRun([FromBody] DrinkRunPaylo
     }
 
     var orders = await _context.DrinkOrders
-        .Where(o => payload.Participants.Select(p => p.DrinkOrderId).Contains(o.Id)) // Make sure DrinkOrderId is used
+        .Where(o => payload.Participants.Select(p => p.DrinkOrderId).Contains(o.Id)) 
         .ToListAsync();
 
     var drinkRun = new DrinkRun

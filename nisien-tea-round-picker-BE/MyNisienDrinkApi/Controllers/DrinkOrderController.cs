@@ -36,7 +36,7 @@ namespace MyNisienDrinkApi.Controllers
         public async Task<ActionResult<DrinkOrder>> GetDrinkOrder(string id)
         {
             var drinkOrder = await _context.DrinkOrders
-                .Include(doi => doi.DrinkRunParticipants) // Ensure this property exists in your model
+                .Include(doi => doi.DrinkRunParticipants) 
                 .FirstOrDefaultAsync(doi => doi.Id == id);
 
             if (drinkOrder == null)
